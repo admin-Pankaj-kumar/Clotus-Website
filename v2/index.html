@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clotus Infotech — CRM &amp; ERP Implementation in 4 to 6 Weeks</title>
+<meta name="description" content="Clotus Infotech implements Salesforce and Zoho CRM, ERP and AI automation for growing businesses. Certified partners. Most clients go live in 4 to 6 weeks.">
+<link rel="canonical" href="https://clotus.tech/">
+<meta property="og:title" content="Clotus Infotech — CRM &amp; ERP Implementation in 4 to 6 Weeks">
+<meta property="og:description" content="Certified Salesforce and Zoho implementation partners. 100+ businesses transformed. Most clients go live in 4 to 6 weeks.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   CLOTUS INFOTECH — v2
+   Brand palette, contrast-corrected. Every value below either
+   meets WCAG AA on its intended ground or is decorative only.
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --navy:#080852;         /* brand navy — primary dark ground        */
+  --navy-deep:#04042e;    /* deeper layer for footer / hero base     */
+  --navy-lift:#12124f;    /* raised surface on navy                  */
+  --sky:#6ec1e4;          /* brand blue — 8.92:1 on navy, DARK ONLY  */
+  --sky-ink:#17607f;      /* blue for text on light — 6.9:1 on white */
+  --crimson:#c0144e;      /* primary CTA — 6.08:1 with white         */
+  --crimson-hi:#e52165;   /* brand pink — decorative accents only    */
+
+  --paper:#f4f5fa;        /* page ground, biased toward navy         */
+  --surface:#ffffff;
+  --surface-sunk:#eceef6;
+  --ink:#0c0c2a;          /* 17.6:1 on paper                         */
+  --ink-2:#484b6b;        /* 7.5:1 on paper                          */
+  --ink-3:#6c6f8d;        /* 4.7:1 on paper — smallest allowed       */
+  --rule:#dcdfeb;
+  --on-navy:#ffffff;
+  --on-navy-2:rgba(255,255,255,.78);  /* 11.9:1 — body on navy       */
+  --on-navy-3:rgba(255,255,255,.62);  /* 7.1:1  — muted on navy      */
+  --hairline:rgba(255,255,255,.14);
+
+  --step:clamp(64px,7vw,104px);   /* vertical section rhythm */
+  --gut:clamp(20px,5vw,72px);     /* horizontal gutter       */
+  --wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Source Sans 3',ui-sans-serif,system-ui,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+
+/* ── Type ─────────────────────────────────────── */
+h1,h2,h3,h4{
+  font-family:'Archivo',ui-sans-serif,system-ui,sans-serif;
+  font-weight:700;line-height:1.08;letter-spacing:-.028em;
+  text-wrap:balance;margin:0;color:var(--ink);
+}
+h1{font-size:clamp(40px,6.4vw,74px)}
+h2{font-size:clamp(30px,4.2vw,50px)}
+h3{font-size:clamp(19px,1.5vw,22px);letter-spacing:-.015em;line-height:1.25}
+h4{font-size:16px;letter-spacing:-.008em}
+p{margin:0}
+.lede{font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:var(--ink-2);max-width:60ch}
+.eyebrow{
+  font-family:'Archivo',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--sky-ink);
+  display:flex;align-items:center;gap:10px;margin-bottom:20px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--crimson-hi);flex:none}
+.on-dark .eyebrow{color:var(--sky)}
+.quote-face{font-family:'Newsreader',Georgia,serif;font-style:italic}
+
+/* ── Layout ───────────────────────────────────── */
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+section{padding-block:var(--step)}
+.sec-head{max-width:64ch;margin-bottom:clamp(38px,5vw,60px)}
+.sec-head p{margin-top:18px}
+
+/* ── Focus & motion (audit fixes) ─────────────── */
+:focus-visible{outline:3px solid var(--sky-ink);outline-offset:3px;border-radius:4px}
+.on-dark :focus-visible,.topbar :focus-visible,.site-footer :focus-visible{outline-color:var(--sky)}
+.skip{
+  position:absolute;left:12px;top:-60px;z-index:200;background:var(--surface);
+  color:var(--ink);padding:12px 20px;border-radius:8px;font-weight:600;
+  box-shadow:0 8px 30px rgba(8,8,82,.25);transition:top .18s;
+}
+.skip:focus{top:12px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .marquee-track{animation:none!important;transform:none!important;flex-wrap:wrap;justify-content:center}
+}
+
+/* ── Buttons: all ≥44px tall ──────────────────── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:52px;padding:14px 28px;border-radius:10px;border:1px solid transparent;
+  font-family:'Archivo',sans-serif;font-size:16px;font-weight:600;letter-spacing:-.005em;
+  text-decoration:none;cursor:pointer;transition:background .18s,border-color .18s,transform .18s;
+}
+.btn-primary{background:var(--crimson);color:#fff}
+.btn-primary:hover{background:#a5103f;transform:translateY(-2px)}
+.btn-quiet{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn-quiet:hover{background:var(--surface);border-color:var(--ink-3)}
+.on-dark .btn-quiet{color:#fff;border-color:var(--hairline)}
+.on-dark .btn-quiet:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.34)}
+.textlink{
+  display:inline-flex;align-items:center;gap:7px;min-height:44px;
+  font-family:'Archivo',sans-serif;font-weight:600;font-size:16px;
+  color:var(--sky-ink);text-decoration:none;
+  text-decoration-line:underline;text-underline-offset:5px;
+  text-decoration-color:rgba(23,96,127,.35);transition:text-decoration-color .18s;
+}
+.textlink:hover{text-decoration-color:currentColor}
+.on-dark .textlink{color:var(--sky);text-decoration-color:rgba(110,193,228,.4)}
+.textlink .arw{transition:transform .18s}
+.textlink:hover .arw{transform:translateX(4px)}
+
+/* ── Top bar ──────────────────────────────────── */
+.topbar{background:var(--navy-deep);color:var(--on-navy-2);font-size:14px}
+.topbar .wrap{display:flex;flex-wrap:wrap;gap:6px 28px;align-items:center;justify-content:space-between;min-height:46px}
+.topbar ul{display:flex;flex-wrap:wrap;gap:4px 22px;list-style:none;margin:0;padding:0}
+.topbar a{
+  color:var(--on-navy-2);text-decoration:none;display:inline-flex;align-items:center;
+  gap:8px;min-height:44px;padding-inline:2px;
+}
+.topbar a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.topbar svg{width:15px;height:15px;flex:none;color:var(--sky)}
+/* On phones the bar stacks to three rows and pushes the hero off screen.
+   Same contacts stay reachable in the contact section and the footer. */
+@media(max-width:720px){.topbar{display:none}}
+
+/* ── Nav ──────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;min-height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand-mark{width:42px;height:42px;flex:none}
+.brand-name{font-family:'Archivo',sans-serif;font-weight:700;font-size:21px;letter-spacing:-.03em;line-height:1}
+.brand-sub{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sky-ink);font-weight:600;margin-top:3px}
+.nav-links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav-links a{
+  display:flex;align-items:center;min-height:44px;padding:0 15px;border-radius:8px;
+  font-family:'Archivo',sans-serif;font-size:15.5px;font-weight:500;
+  color:var(--ink);text-decoration:none;transition:background .16s;
+}
+.nav-links a:hover{background:var(--surface-sunk)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-actions .btn{min-height:46px;padding:11px 22px;font-size:15px}
+.burger{display:none;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid var(--rule);border-radius:9px;background:var(--surface);cursor:pointer}
+.burger svg{width:20px;height:20px;color:var(--ink)}
+#mobile-nav{display:none;border-top:1px solid var(--rule);background:var(--surface)}
+#mobile-nav[data-open="true"]{display:block}
+#mobile-nav ul{list-style:none;margin:0;padding:10px var(--gut) 22px;display:flex;flex-direction:column}
+#mobile-nav a{display:flex;align-items:center;min-height:52px;font-family:'Archivo',sans-serif;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+@media(max-width:1020px){
+  .nav-links,.nav-actions .btn-quiet{display:none}
+  .burger{display:inline-flex}
+}
+@media(max-width:640px){.nav-actions .btn{display:none}}
+
+/* ── Hero ─────────────────────────────────────── */
+.hero{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden;padding-block:clamp(56px,7vw,96px) clamp(64px,8vw,110px)}
+.hero::after{
+  content:"";position:absolute;inset:auto -10% -55% 55%;height:70%;
+  background:radial-gradient(ellipse at center,rgba(110,193,228,.22),transparent 68%);
+  pointer-events:none;
+}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(38px,5vw,72px);align-items:center}
+.hero h1{color:#fff}
+.hero h1 .accent{color:var(--sky);display:block}
+.hero-lede{color:var(--on-navy-2);font-size:clamp(17px,1.6vw,20px);line-height:1.6;max-width:52ch;margin-top:24px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-note{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:26px;font-size:14.5px;color:var(--on-navy-3)}
+.hero-note .dot{width:4px;height:4px;border-radius:50%;background:var(--sky);flex:none}
+@media(max-width:960px){.hero .wrap{grid-template-columns:1fr}}
+
+/* Engagement card — the shape of an actual project brief */
+.brief{background:var(--navy-lift);border:1px solid var(--hairline);border-radius:18px;padding:clamp(22px,2.6vw,30px)}
+.brief-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--hairline)}
+.brief-tag{font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--sky)}
+.brief-chip{font-size:12.5px;color:var(--on-navy-3);border:1px solid var(--hairline);border-radius:999px;padding:5px 12px}
+.brief-rows{list-style:none;margin:0;padding:20px 0 0;display:flex;flex-direction:column;gap:1px}
+.brief-rows li{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.brief-rows li:last-child{border-bottom:none}
+.brief-k{font-size:14.5px;color:var(--on-navy-3)}
+.brief-v{font-family:'Archivo',sans-serif;font-weight:600;font-size:16px;color:#fff;font-variant-numeric:tabular-nums;text-align:right}
+.brief-foot{margin-top:20px;padding-top:18px;border-top:1px solid var(--hairline);display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--on-navy-3)}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--sky);flex:none;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── Stat band ────────────────────────────────── */
+.stats{background:var(--navy-deep);color:#fff;padding-block:0}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hairline);border-block:1px solid var(--hairline)}
+.stat{background:var(--navy-deep);padding:30px 8px 30px 0}
+.stat dt{font-family:'Archivo',sans-serif;font-size:clamp(30px,3.4vw,42px);font-weight:700;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.stat dd{margin:9px 0 0;font-size:14.5px;color:var(--on-navy-3);line-height:1.4}
+@media(max-width:760px){.stats .wrap{grid-template-columns:1fr 1fr}}
+
+/* ── Partner marquee ──────────────────────────── */
+.partners{background:var(--surface);border-bottom:1px solid var(--rule);padding-block:clamp(38px,4vw,54px)}
+.marquee{overflow:hidden;margin-top:26px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.marquee-track{display:flex;gap:14px;width:max-content;animation:slide 34s linear infinite}
+.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.plogo{display:flex;flex-direction:column;gap:2px;padding:15px 26px;border:1px solid var(--rule);border-radius:12px;background:var(--paper);min-width:210px}
+.plogo b{font-family:'Archivo',sans-serif;font-size:16.5px;letter-spacing:-.015em}
+.plogo span{font-size:13.5px;color:var(--ink-3)}
+
+/* ── Services ─────────────────────────────────── */
+.svc-core{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:clamp(24px,2.4vw,32px);text-decoration:none;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s}
+.svc:hover{border-color:var(--sky-ink);transform:translateY(-3px);box-shadow:0 14px 40px rgba(8,8,82,.09)}
+.svc-ico{width:44px;height:44px;border-radius:11px;background:var(--navy);color:var(--sky);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.svc-ico svg{width:22px;height:22px}
+.svc p{color:var(--ink-2);font-size:15.5px;margin-top:11px}
+.svc ul{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+.svc ul li{font-size:13px;color:var(--ink-2);background:var(--surface-sunk);border-radius:999px;padding:5px 12px}
+.svc .textlink{margin-top:auto;padding-top:20px}
+.svc-more{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.svc-sm{background:transparent;border:1px solid var(--rule);border-radius:14px;padding:22px}
+.svc-sm h4{margin-bottom:8px}
+.svc-sm p{font-size:14.5px;color:var(--ink-2)}
+@media(max-width:1020px){.svc-core,.svc-more{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.svc-core,.svc-more{grid-template-columns:1fr}}
+
+/* ── Timeline: the spine of the page ──────────── */
+.timeline{background:var(--navy);color:#fff}
+.timeline h2{color:#fff}
+.timeline .lede{color:var(--on-navy-2)}
+.rail{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:14px}
+.phase{position:relative;padding:44px 18px 0 0}
+.phase::before{content:"";position:absolute;top:15px;left:0;right:0;height:2px;background:var(--hairline)}
+.phase:first-child::before{left:0;border-radius:2px 0 0 2px}
+.phase-dot{position:absolute;top:9px;left:0;width:14px;height:14px;border-radius:50%;background:var(--navy);border:2px solid var(--sky);z-index:1}
+.phase.is-live .phase-dot{background:var(--sky);box-shadow:0 0 0 5px rgba(110,193,228,.2)}
+.phase-wk{font-family:'Archivo',sans-serif;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--sky);font-variant-numeric:tabular-nums}
+.phase h3{color:#fff;margin:9px 0 10px;font-size:18.5px}
+.phase p{font-size:14.5px;color:var(--on-navy-3);line-height:1.55}
+.phase ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.phase ul li{font-size:13.5px;color:var(--on-navy-2);padding-left:17px;position:relative}
+.phase ul li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:1.5px;background:var(--sky)}
+@media(max-width:1020px){
+  .rail{grid-template-columns:1fr;gap:0}
+  .phase{padding:0 0 30px 30px}
+  .phase::before{top:0;bottom:0;left:6px;right:auto;width:2px;height:auto}
+  .phase:last-child::before{bottom:auto;height:16px}
+  .phase-dot{top:2px;left:0}
+}
+
+/* ── Accordion (real buttons) ─────────────────── */
+.acc{border-top:1px solid var(--rule)}
+.acc-item{border-bottom:1px solid var(--rule)}
+.acc-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  min-height:76px;padding:20px 4px;background:none;border:none;cursor:pointer;text-align:left;
+  font-family:'Archivo',sans-serif;font-size:clamp(17px,1.7vw,21px);font-weight:600;
+  letter-spacing:-.015em;color:var(--ink);
+}
+.acc-btn:hover{color:var(--sky-ink)}
+.acc-sign{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;transition:transform .22s,background .22s}
+.acc-sign svg{width:14px;height:14px}
+.acc-btn[aria-expanded="true"] .acc-sign{transform:rotate(45deg);background:var(--navy);color:var(--sky);border-color:var(--navy)}
+.acc-panel[hidden]{display:none}
+.acc-panel{padding:0 0 26px}
+.acc-panel p{color:var(--ink-2);max-width:70ch}
+.acc-pill{display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--sky-ink);background:var(--surface-sunk);border-radius:999px;padding:6px 14px}
+
+/* ── Testimonials ─────────────────────────────── */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.quote{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:clamp(24px,2.4vw,30px)}
+.quote blockquote{margin:0;font-size:clamp(17px,1.5vw,19.5px);line-height:1.5;color:var(--ink)}
+.quote figcaption{margin-top:auto;padding-top:22px;display:flex;align-items:center;gap:13px}
+.avatar{width:42px;height:42px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px;color:#fff}
+.who b{display:block;font-family:'Archivo',sans-serif;font-size:15.5px;letter-spacing:-.01em}
+.who span{font-size:13.5px;color:var(--ink-3)}
+.quote-tag{align-self:flex-start;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sky-ink);margin-bottom:18px}
+@media(max-width:960px){.quotes{grid-template-columns:1fr}}
+
+/* ── Industries ───────────────────────────────── */
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ind-col h3{font-size:15px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:600;padding-bottom:13px;border-bottom:1px solid var(--rule);margin-bottom:6px}
+.ind-col ul{list-style:none;margin:0;padding:0}
+.ind-col li{padding:11px 0;border-bottom:1px solid var(--rule);font-size:15.5px;color:var(--ink-2)}
+.ind-col li:last-child{border-bottom:none}
+@media(max-width:900px){.ind-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.ind-grid{grid-template-columns:1fr}}
+
+/* ── Contact ──────────────────────────────────── */
+.contact{background:var(--navy);color:#fff}
+.contact h2{color:#fff}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(38px,5vw,72px)}
+.contact .lede{color:var(--on-navy-2)}
+.direct{list-style:none;margin:34px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
+.direct a{display:flex;align-items:center;gap:15px;min-height:60px;padding:10px 0;color:#fff;text-decoration:none;border-bottom:1px solid var(--hairline)}
+.direct a:hover .d-val{color:var(--sky);text-decoration:underline;text-underline-offset:4px}
+.d-ico{width:38px;height:38px;flex:none;border-radius:10px;background:var(--navy-lift);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;color:var(--sky)}
+.d-ico svg{width:17px;height:17px}
+.d-lab{display:block;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--on-navy-3)}
+.d-val{display:block;font-family:'Archivo',sans-serif;font-size:16.5px;font-weight:600;margin-top:2px}
+.form{background:var(--navy-lift);border:1px solid var(--hairline);border-radius:18px;padding:clamp(24px,2.8vw,34px)}
+.field{margin-bottom:18px}
+.field label{display:block;font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;margin-bottom:8px;color:#fff}
+.field .req{color:var(--sky)}
+.field .hint{display:block;font-weight:400;font-size:13px;color:var(--on-navy-3);margin-top:4px}
+.field input,.field select,.field textarea{
+  width:100%;min-height:52px;padding:14px 16px;border-radius:10px;
+  background:rgba(255,255,255,.06);border:1px solid var(--hairline);color:#fff;
+  font-family:inherit;font-size:16px;transition:border-color .18s,background .18s;
+}
+.field textarea{min-height:120px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.42)}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:rgba(255,255,255,.3)}
+.field input:focus,.field select:focus,.field textarea:focus{background:rgba(255,255,255,.1);border-color:var(--sky);outline-offset:1px}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%236ec1e4' stroke-width='2'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;background-size:16px;padding-right:44px}
+.field select option{background:var(--navy);color:#fff}
+.form .btn{width:100%;margin-top:6px}
+.form-foot{margin-top:16px;font-size:13.5px;color:var(--on-navy-3);text-align:center}
+@media(max-width:900px){.contact .wrap{grid-template-columns:1fr}}
+
+/* ── Footer ───────────────────────────────────── */
+.site-footer{background:var(--navy-deep);color:var(--on-navy-2);padding-block:clamp(52px,6vw,76px) 34px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+.foot-grid h3{font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.foot-grid ul{list-style:none;margin:0;padding:0}
+.foot-grid li a{display:inline-flex;align-items:center;min-height:40px;color:var(--on-navy-2);text-decoration:none;font-size:15px}
+.foot-grid li a:hover{color:var(--sky);text-decoration:underline;text-underline-offset:4px}
+.foot-about p{font-size:15px;color:var(--on-navy-3);margin-top:16px;max-width:34ch}
+.foot-bottom{margin-top:44px;padding-top:26px;border-top:1px solid var(--hairline);display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center;justify-content:space-between;font-size:14px;color:var(--on-navy-3)}
+.foot-bottom ul{display:flex;flex-wrap:wrap;gap:4px 22px;list-style:none;margin:0;padding:0}
+.foot-bottom a{color:var(--on-navy-3);text-decoration:none;display:inline-flex;align-items:center;min-height:40px}
+.foot-bottom a:hover{color:var(--sky);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- ─────────── TOP BAR ─────────── -->
+<div class="topbar">
+  <div class="wrap">
+    <ul>
+      <li><a href="tel:+14433322799"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>United States: +1 443 332 2799</a></li>
+      <li><a href="tel:+919122662688"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>India: +91 91226 62688</a></li>
+    </ul>
+    <a href="mailto:hello@clotus.tech"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>hello@clotus.tech</a>
+  </div>
+</div>
+
+<!-- ─────────── NAV ─────────── -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Clotus Infotech — home">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <rect width="48" height="48" rx="12" fill="#080852"/>
+        <path d="M32 17.5A9.5 9.5 0 1 0 32 30.5" stroke="#6ec1e4" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <circle cx="33" cy="24" r="3.4" fill="#e52165"/>
+      </svg>
+      <span>
+        <span class="brand-name">Clotus</span>
+        <span class="brand-sub">Infotech</span>
+      </span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-quiet" href="#approach">How we work</a>
+      <a class="btn btn-primary" href="#contact">Book a consultation</a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact">Book a consultation</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ─────────── HERO ─────────── -->
+<section class="hero on-dark" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-h">Less chaos.<br>More clarity.<br><span class="accent">Measurable growth.</span></h1>
+      <p class="hero-lede">We implement AI-powered CRM, ERP and automation systems that remove the friction holding your business back — and replace it with results you can actually measure.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Book a free consultation</a>
+        <a class="textlink" href="#results">See client results <span class="arw" aria-hidden="true">→</span></a>
+      </div>
+      <p class="hero-note">
+        <span class="dot" aria-hidden="true"></span> No commitment required
+        <span class="dot" aria-hidden="true"></span> 30-minute call
+        <span class="dot" aria-hidden="true"></span> Certified Salesforce &amp; Zoho partners
+      </p>
+    </div>
+
+    <div class="brief">
+      <div class="brief-top">
+        <span class="brief-tag">Typical engagement</span>
+        <span class="brief-chip">Fixed scope</span>
+      </div>
+      <ul class="brief-rows">
+        <li><span class="brief-k">Discovery to go-live</span><span class="brief-v">4–6 weeks</span></li>
+        <li><span class="brief-k">Delivery cadence</span><span class="brief-v">Weekly sprints</span></li>
+        <li><span class="brief-k">Business disruption</span><span class="brief-v">None</span></li>
+        <li><span class="brief-k">Platforms</span><span class="brief-v">Salesforce · Zoho</span></li>
+        <li><span class="brief-k">Post go-live support</span><span class="brief-v">Ongoing</span></li>
+      </ul>
+      <p class="brief-foot"><span class="pulse" aria-hidden="true"></span> 100+ implementations delivered to this standard</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── STATS ─────────── -->
+<section class="stats" aria-label="Clotus by the numbers">
+  <dl class="wrap">
+    <div class="stat"><dt>100+</dt><dd>Businesses transformed</dd></div>
+    <div class="stat"><dt>12</dt><dd>Industries served</dd></div>
+    <div class="stat"><dt>20+</dt><dd>Certified consultants</dd></div>
+    <div class="stat"><dt>4–6<span aria-hidden="true">w</span></dt><dd>Average go-live time</dd></div>
+  </dl>
+</section>
+
+<!-- ─────────── PARTNERS ─────────── -->
+<section class="partners" aria-labelledby="partners-h">
+  <div class="wrap">
+    <h2 id="partners-h" style="font-size:clamp(20px,2vw,24px)">Certified across the platforms your business runs on</h2>
+    <p class="lede" style="font-size:16px;margin-top:10px">Implementation partners for the leading CRM, automation, e-signature and data integration platforms.</p>
+  </div>
+  <div class="marquee">
+    <ul class="marquee-track" style="list-style:none;margin:0;padding:0 var(--gut)">
+      <li class="plogo"><b>Salesforce</b><span>CRM &amp; Sales Cloud</span></li>
+      <li class="plogo"><b>Zoho</b><span>CRM &amp; Automation</span></li>
+      <li class="plogo"><b>Conga Composer</b><span>Document Automation</span></li>
+      <li class="plogo"><b>DocuSign</b><span>E-Signatures</span></li>
+      <li class="plogo"><b>123FormBuilder</b><span>Forms &amp; Data Capture</span></li>
+      <li class="plogo"><b>Skyvia</b><span>Data Integration</span></li>
+      <li class="plogo" aria-hidden="true"><b>Salesforce</b><span>CRM &amp; Sales Cloud</span></li>
+      <li class="plogo" aria-hidden="true"><b>Zoho</b><span>CRM &amp; Automation</span></li>
+      <li class="plogo" aria-hidden="true"><b>Conga Composer</b><span>Document Automation</span></li>
+      <li class="plogo" aria-hidden="true"><b>DocuSign</b><span>E-Signatures</span></li>
+      <li class="plogo" aria-hidden="true"><b>123FormBuilder</b><span>Forms &amp; Data Capture</span></li>
+      <li class="plogo" aria-hidden="true"><b>Skyvia</b><span>Data Integration</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─────────── SERVICES ─────────── -->
+<section id="services" aria-labelledby="services-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What we deliver</p>
+      <h2 id="services-h">Every service exists for one reason — to make your business perform better.</h2>
+      <p class="lede">From your first CRM to a fully AI-powered digital operation, with the certifications and delivery record to back it.</p>
+    </div>
+
+    <div class="svc-core">
+      <a class="svc" href="#contact">
+        <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg></span>
+        <h3>CRM &amp; ERP Implementation</h3>
+        <p>Your business operations, connected and performing the way they should be.</p>
+        <ul><li>Deal management</li><li>Quote &amp; RFQ</li><li>Inventory</li><li>End-to-end mapping</li></ul>
+        <span class="textlink">Explore <span class="arw" aria-hidden="true">→</span></span>
+      </a>
+      <a class="svc" href="#contact">
+        <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
+        <h3>Digital Transformation</h3>
+        <p>From how your business runs today to how it needs to run tomorrow.</p>
+        <ul><li>System unification</li><li>Workflow automation</li><li>Change management</li></ul>
+        <span class="textlink">Explore <span class="arw" aria-hidden="true">→</span></span>
+      </a>
+      <a class="svc" href="#contact">
+        <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 14h.01M15 14h.01"/></svg></span>
+        <h3>AI Transformation</h3>
+        <p>Not AI for the sake of it. AI where it actually moves the needle.</p>
+        <ul><li>Lead scoring</li><li>Predictive analytics</li><li>AI decision making</li></ul>
+        <span class="textlink">Explore <span class="arw" aria-hidden="true">→</span></span>
+      </a>
+    </div>
+
+    <div class="svc-more">
+      <div class="svc-sm"><h4>System Integration &amp; Automation</h4><p>Connect every platform you run on into one automated ecosystem.</p></div>
+      <div class="svc-sm"><h4>Web &amp; Mobile App Development</h4><p>Custom applications that extend your CRM and digital infrastructure.</p></div>
+      <div class="svc-sm"><h4>Consulting &amp; Managed Services</h4><p>Advisory, CRM health checks, upgrades and proactive managed support.</p></div>
+      <div class="svc-sm"><h4>Staff Augmentation</h4><p>Certified Salesforce, Zoho and automation professionals, on demand.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── TIMELINE ─────────── -->
+<section id="approach" class="timeline on-dark" aria-labelledby="approach-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How we work</p>
+      <h2 id="approach-h">From first conversation to go-live in 4 to 6 weeks.</h2>
+      <p class="lede">Fast, transparent and low-disruption — so your team stays focused on running the business while we build the systems that grow it.</p>
+    </div>
+
+    <ol class="rail" style="list-style:none;margin:0;padding:0">
+      <li class="phase is-live">
+        <span class="phase-dot" aria-hidden="true"></span>
+        <span class="phase-wk">Week 1</span>
+        <h3>Discovery &amp; audit</h3>
+        <p>We map your sales process and find where your team loses the most time.</p>
+        <ul><li>Stakeholder interviews</li><li>Gap analysis</li><li>ROI identification</li></ul>
+      </li>
+      <li class="phase">
+        <span class="phase-dot" aria-hidden="true"></span>
+        <span class="phase-wk">Week 2</span>
+        <h3>Strategy &amp; roadmap</h3>
+        <p>Platform selection, budget and the success metrics we will be judged on.</p>
+        <ul><li>Technology selection</li><li>Budget planning</li><li>Success metrics</li></ul>
+      </li>
+      <li class="phase">
+        <span class="phase-dot" aria-hidden="true"></span>
+        <span class="phase-wk">Weeks 3–4</span>
+        <h3>Implementation</h3>
+        <p>Configuration, migration and integration, shipped in weekly sprints.</p>
+        <ul><li>Data migration</li><li>System integration</li><li>Weekly sprints</li></ul>
+      </li>
+      <li class="phase">
+        <span class="phase-dot" aria-hidden="true"></span>
+        <span class="phase-wk">Weeks 5–6</span>
+        <h3>Training &amp; go-live</h3>
+        <p>Your team is trained before launch, so day one needs no manual.</p>
+        <ul><li>UAT testing</li><li>Documentation</li><li>Go-live support</li></ul>
+      </li>
+      <li class="phase">
+        <span class="phase-dot" aria-hidden="true"></span>
+        <span class="phase-wk">Ongoing</span>
+        <h3>Support &amp; optimisation</h3>
+        <p>We measure success by what changes in your business after go-live.</p>
+        <ul><li>Monthly reviews</li><li>Enhancements</li><li>Long-term partnership</li></ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ─────────── WHY US ─────────── -->
+<section aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Why businesses choose Clotus</p>
+      <h2 id="why-h">Most CRM projects fail. Ours don't.</h2>
+    </div>
+
+    <div class="acc">
+      <div class="acc-item">
+        <h3><button class="acc-btn" type="button" aria-expanded="true" aria-controls="acc-1">
+          We start with your business, not the software
+          <span class="acc-sign" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button></h3>
+        <div class="acc-panel" id="acc-1">
+          <p>Before we open a single platform, we spend time understanding your sales process, your operational bottlenecks, and where your team loses the most time. That's what makes the difference between a CRM that sits unused and one that becomes the backbone of your growth.</p>
+          <p class="acc-pill">Strategy before technology</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="acc-2">
+          Complex technology, made simple for your team
+          <span class="acc-sign" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button></h3>
+        <div class="acc-panel" id="acc-2" hidden>
+          <p>AI and digital transformation sound intimidating — we make them feel effortless. We configure, simplify, and train your team so that on day one, everyone knows exactly what to do. No manuals. No confusion. No weeks of onboarding. Just a system that works.</p>
+          <p class="acc-pill">Built for real people, not IT teams</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="acc-3">
+          We take full ownership — you stay focused on your business
+          <span class="acc-sign" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button></h3>
+        <div class="acc-panel" id="acc-3" hidden>
+          <p>You don't need to manage the project, chase consultants, or worry about what's happening behind the scenes. We set clear milestones, communicate proactively, and deliver on time. Most implementations go live in 4 to 6 weeks — without disrupting your daily operations.</p>
+          <p class="acc-pill">Zero disruption to your team</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="acc-4">
+          Growth you can see in the numbers
+          <span class="acc-sign" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button></h3>
+        <div class="acc-panel" id="acc-4" hidden>
+          <p>Within weeks of going live, our clients typically see faster lead response times, shorter sales cycles, and significantly less time spent on manual work. We don't measure success by go-live date — we measure it by what changes in your business after.</p>
+          <p class="acc-pill">ROI from week one</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── RESULTS ─────────── -->
+<section id="results" style="background:var(--surface-sunk)" aria-labelledby="results-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Client results</p>
+      <h2 id="results-h">Don't take our word for it. Take theirs.</h2>
+      <p class="lede">Over 100 businesses have trusted Clotus to change how they operate.</p>
+    </div>
+
+    <div class="quotes">
+      <figure class="quote">
+        <span class="quote-tag">CRM Implementation</span>
+        <blockquote class="quote-face">“Before Clotus, our sales team was running on spreadsheets and gut feel. Within 6 weeks of go-live, our lead response time dropped by 60% and we closed our biggest quarter ever.”</blockquote>
+        <figcaption>
+          <span class="avatar" style="background:#2a6a9a" aria-hidden="true">JD</span>
+          <span class="who"><b>John Davidson</b><span>CEO, Davidson &amp; Partners · USA</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <span class="quote-tag">Digital Transformation</span>
+        <blockquote class="quote-face">“We had tried two other vendors before Clotus. The difference was that they understood our operation before they touched the software.”</blockquote>
+        <figcaption>
+          <span class="avatar" style="background:#0f6e56" aria-hidden="true">SR</span>
+          <span class="who"><b>Sarah Reeves</b><span>COO, Reeves Manufacturing · UK</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <span class="quote-tag">System Integration</span>
+        <blockquote class="quote-face">“The ROI was visible within the first month. We eliminated 14 hours of manual data entry per week.”</blockquote>
+        <figcaption>
+          <span class="avatar" style="background:#8b1040" aria-hidden="true">AM</span>
+          <span class="who"><b>Arjun Mehta</b><span>Founder, Mehta Logistics · India</span></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── INDUSTRIES ─────────── -->
+<section id="industries" aria-labelledby="industries-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Industries we serve</p>
+      <h2 id="industries-h">One partner. Every industry.</h2>
+      <p class="lede">Our methodology adapts to any business model — we've likely worked in your sector, or something very close to it.</p>
+    </div>
+
+    <div class="ind-grid">
+      <div class="ind-col">
+        <h3>Financial services</h3>
+        <ul><li>Insurance</li><li>Lending</li><li>Real estate</li></ul>
+      </div>
+      <div class="ind-col">
+        <h3>Technology &amp; professional</h3>
+        <ul><li>Software &amp; technology</li><li>Accounting &amp; tax</li><li>Home services</li></ul>
+      </div>
+      <div class="ind-col">
+        <h3>Healthcare &amp; education</h3>
+        <ul><li>Healthcare</li><li>Education</li><li>Non-profit</li></ul>
+      </div>
+      <div class="ind-col">
+        <h3>Commerce &amp; operations</h3>
+        <ul><li>Manufacturing</li><li>Logistics</li><li>Retail</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── CONTACT ─────────── -->
+<section id="contact" class="contact on-dark" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Start here</p>
+      <h2 id="contact-h">If your last CRM didn't deliver, let's show you what a successful one looks like.</h2>
+      <p class="lede">Book a free 30-minute consultation. We'll assess your operation and tell you exactly which service will move the needle — before you commit to anything.</p>
+
+      <ul class="direct">
+        <li><a href="mailto:hello@clotus.tech">
+          <span class="d-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+          <span><span class="d-lab">Email</span><span class="d-val">hello@clotus.tech</span></span>
+        </a></li>
+        <li><a href="tel:+14433322799">
+          <span class="d-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+          <span><span class="d-lab">United States</span><span class="d-val">+1 443 332 2799</span></span>
+        </a></li>
+        <li><a href="tel:+919122662688">
+          <span class="d-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+          <span><span class="d-lab">India</span><span class="d-val">+91 91226 62688</span></span>
+        </a></li>
+      </ul>
+    </div>
+
+    <!-- Wire `action` to your form endpoint (Formspree, HubSpot, Zoho Forms…).
+         mailto is a working default so the form is never a dead end. -->
+    <form class="form" action="mailto:hello@clotus.tech" method="post" enctype="text/plain">
+      <div class="field">
+        <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Jane Doe">
+      </div>
+      <div class="field">
+        <label for="f-email">Work email <span class="req" aria-hidden="true">*</span></label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="jane@company.com">
+      </div>
+      <div class="field">
+        <label for="f-company">Company</label>
+        <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Company name">
+      </div>
+      <div class="field">
+        <label for="f-need">What do you need help with?</label>
+        <select id="f-need" name="need">
+          <option>CRM or ERP implementation</option>
+          <option>Digital transformation</option>
+          <option>AI transformation</option>
+          <option>System integration &amp; automation</option>
+          <option>Staff augmentation</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-msg">Tell us about your operation
+          <span class="hint">What's slowing your team down today? A sentence or two is plenty.</span>
+        </label>
+        <textarea id="f-msg" name="message" placeholder="We're running sales on spreadsheets and losing track of follow-ups…"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Book my free consultation</button>
+      <p class="form-foot">We reply within one business day. No sales sequence, no commitment.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ─────────── FOOTER ─────────── -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="/" style="color:#fff" aria-label="Clotus Infotech — home">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+            <rect width="48" height="48" rx="12" fill="#12124f"/>
+            <path d="M32 17.5A9.5 9.5 0 1 0 32 30.5" stroke="#6ec1e4" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <circle cx="33" cy="24" r="3.4" fill="#e52165"/>
+          </svg>
+          <span>
+            <span class="brand-name" style="color:#fff">Clotus</span>
+            <span class="brand-sub" style="color:var(--sky)">Infotech</span>
+          </span>
+        </a>
+        <p>AI-powered CRM implementation and digital transformation for businesses ready to grow. Certified partners across Salesforce, Zoho and the automation stack.</p>
+      </div>
+
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">CRM &amp; ERP Implementation</a></li>
+          <li><a href="#services">Digital Transformation</a></li>
+          <li><a href="#services">AI Transformation</a></li>
+          <li><a href="#services">System Integration</a></li>
+          <li><a href="#services">Staff Augmentation</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Industries</h3>
+        <ul>
+          <li><a href="#industries">Financial services</a></li>
+          <li><a href="#industries">Healthcare</a></li>
+          <li><a href="#industries">Manufacturing</a></li>
+          <li><a href="#industries">Logistics &amp; retail</a></li>
+          <li><a href="#industries">Non-profit</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#approach">How we work</a></li>
+          <li><a href="#results">Client results</a></li>
+          <li><a href="mailto:hello@clotus.tech">hello@clotus.tech</a></li>
+          <li><a href="tel:+14433322799">+1 443 332 2799</a></li>
+          <li><a href="tel:+919122662688">+91 91226 62688</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <p>© 2026 Clotus Infotech. All rights reserved.</p>
+      <ul>
+        <li><a href="#contact">Privacy Policy</a></li>
+        <li><a href="#contact">Terms of Service</a></li>
+        <li><a href="#contact">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Mobile menu */
+  var burger = document.getElementById('burger');
+  var mobile = document.getElementById('mobile-nav');
+  if (burger && mobile) {
+    burger.addEventListener('click', function(){
+      var open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      mobile.setAttribute('data-open', String(!open));
+      burger.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+    });
+    mobile.addEventListener('click', function(e){
+      if (e.target.closest('a')) {
+        burger.setAttribute('aria-expanded','false');
+        mobile.setAttribute('data-open','false');
+      }
+    });
+  }
+
+  /* Accordion — one open at a time, driven by aria-expanded */
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.acc-btn'));
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      buttons.forEach(function(other){
+        var panel = document.getElementById(other.getAttribute('aria-controls'));
+        other.setAttribute('aria-expanded','false');
+        if (panel) panel.hidden = true;
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded','true');
+        var own = document.getElementById(btn.getAttribute('aria-controls'));
+        if (own) own.hidden = false;
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
